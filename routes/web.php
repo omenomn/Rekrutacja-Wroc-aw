@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CodesController@index')->name('home');
+
+Route::get('codes', 'CodesController@index')->name('codes');
+Route::post('codes', 'CodesController@store')->name('codes.store');
+Route::delete('codes', 'CodesController@destroy')->name('codes.destroy');
