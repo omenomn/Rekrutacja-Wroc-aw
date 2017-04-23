@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      Validator::replacer('exists', function ($message, $attribute, $rule, $parameters) {
+
+          return str_replace(':value', request()->input($attribute), $message);
+      });
     }
 
     /**
@@ -22,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
-        //
+    {  
+      //
     }
 }
