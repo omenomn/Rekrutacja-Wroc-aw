@@ -101,6 +101,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'remove_codes' => [
+          'required' => 'Wybierz kody do usunięcia.'
+        ],
         'remove_codes.*' => [
           'exists' => 'Wybrana wartość :value jest niepoprawna.',
         ]
